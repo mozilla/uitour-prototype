@@ -22,7 +22,7 @@ as opening menu panels, highlighting buttons, or querying Firefox Account
 signed-in state. It is supported in Firefox 29 onward, but some API calls
 are only supported in later versions.
 
-For security reasons `Mozilla.UITour` will only work on white-listed domains
+For security reasons `Mozilla.UITour` will only work on pre-defined set of domains
 and over a secure connection. The list of allowed origins can be found here:
 https://searchfox.org/mozilla-central/source/browser/app/permissions
 
