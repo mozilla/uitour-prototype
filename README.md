@@ -1,5 +1,14 @@
 # UITour Prototype
 
+## Running this locally
+
+* Install nodejs
+* `yarn install`
+* `yarn start`
+
+Follow the pref instructions, it's expected you'll be running this at http://localhost:9090.
+
+
 ## Requirements
 
 This prototype makes use of the UITour library. To see the prototype work,
