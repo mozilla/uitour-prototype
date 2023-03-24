@@ -2,7 +2,6 @@
 layout: base
 ---
 
-
 <a href="https://firefox-source-docs.mozilla.org/browser/components/uitour/docs/UITour-lib.html" target="_blank">UI Tour Docs</a>
 
 <div id="prefs-note" class="note">
@@ -12,7 +11,6 @@ layout: base
     <li><p><code>browser.uitour.requireSecure</code> (Bool) switched to <code>false</code></p></li>
   </ul>
 </div>
-
 
 <div id="fxa-status">
   <div id="fxa-signup">
@@ -33,4 +31,3 @@ layout: base
   </div>
 </div>
 <div id="default-status"></div>
-

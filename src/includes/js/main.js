@@ -7,15 +7,18 @@ if (Mozilla?.UITour) {
   }
 
   function getFxaDetails() {
-    Mozilla.UITour.getConfiguration('fxa', function(config) {
+    Mozilla.UITour.getConfiguration('fxa', function (config) {
       fxaStatus.innerHTML = `${config.setup === false ? initialFxaStatus : ''}
         <h2>FXA Info</h2>
         <ul>
-          <li>FXA Account Signed in? ${booleanCheck(config.setup && config.accountStateOK)}</li>
-          <li>Sync Setup? ${booleanCheck(config?.browserServices?.sync?.setup)}</li>
+          <li>FXA Account Signed in? ${booleanCheck(
+            config.setup && config.accountStateOK,
+          )}</li>
+          <li>Sync Setup? ${booleanCheck(
+            config?.browserServices?.sync?.setup,
+          )}</li>
         </ul>
       `;
-
 
       if (config.setup === true) {
         fxaStatus.innerHTML += `
@@ -38,29 +41,28 @@ if (Mozilla?.UITour) {
       `;
 
       if (config.setup === true) {
-        document.getElementById('sync-prefs').onclick = function(){
+        document.getElementById('sync-prefs').onclick = function () {
           // Opens the sync prefs in a new tab.
           Mozilla.UITour.openPreferences('Sync');
         };
 
-        document.getElementById('connect-other-device').onclick = function(){
+        document.getElementById('connect-other-device').onclick = function () {
           // This doesn't allow setting where to redirect to, so isn't likely to fit what we need.
           // If redirect_to is set as extraURLParams, it's silently ignored.
           Mozilla.UITour.showConnectAnotherDevice();
         };
 
-        Mozilla.UITour.getConfiguration('availableTargets', function(config) {
+        Mozilla.UITour.getConfiguration('availableTargets', function (config) {
           // This logs targets.
           console.log(config.targets);
         });
 
-
         // Toggle a highlight of the Account Status Area.
         let highlightToggleState = 0;
-        const highlightButton = document.getElementById("highlight-account");
+        const highlightButton = document.getElementById('highlight-account');
         const originalHighlightButtonText = highlightButton.innerText;
 
-        highlightButton.onclick = function(){
+        highlightButton.onclick = function () {
           // This highlights the accountStatus.
           // If we need this we should check that the target exists in `availableTargets`
           // before showing this UI.
@@ -80,8 +82,7 @@ if (Mozilla?.UITour) {
 
   const defaultStatus = document.getElementById('default-status');
   function getAppInfo() {
-    Mozilla.UITour.getConfiguration('appinfo', function(config) {
-
+    Mozilla.UITour.getConfiguration('appinfo', function (config) {
       const isDefaultBrowser = config.defaultBrowser;
 
       defaultStatus.innerHTML = `
@@ -92,7 +93,11 @@ if (Mozilla?.UITour) {
           <li>Browser is Default? ${booleanCheck(isDefaultBrowser)}</li>
         </ul>
 
-        ${!isDefaultBrowser ? '<p>Make Firefox your default browser?</p><button id="default-browser">Set Default</button><br /><br />' : ''}
+        ${
+          !isDefaultBrowser
+            ? '<p>Make Firefox your default browser?</p><button id="default-browser">Set Default</button><br /><br />'
+            : ''
+        }
 
         <details>
           <summary>Debug Info</summary>
@@ -106,36 +111,32 @@ if (Mozilla?.UITour) {
 
       const defaultBrowserButton = document.getElementById('default-browser');
       if (defaultBrowserButton) {
-        defaultBrowserButton.onclick = function() {
+        defaultBrowserButton.onclick = function () {
           Mozilla.UITour.setConfiguration('defaultBrowser');
         };
       }
 
-      document.getElementById('reset-firefox').onclick = function() {
+      document.getElementById('reset-firefox').onclick = function () {
         Mozilla.UITour.resetFirefox();
-      }
-
+      };
     });
-  };
+  }
 
   function init() {
     getFxaDetails();
     getAppInfo();
-  };
+  }
 
   // Check Doc is ready for UITour.
-  Mozilla.UITour.ping(function() {
+  Mozilla.UITour.ping(function () {
     document.getElementById('prefs-note').style.display = 'none';
     fxaStatus.style.display = 'block';
     console.log('UITour Ready');
     init();
   });
 
-  document.addEventListener("focus", function() {
+  document.addEventListener('focus', function () {
     console.log('Page Focused, re-checking data');
     init();
   });
-
-
-
 }

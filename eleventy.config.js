@@ -4,8 +4,7 @@ const path = require('path');
 const inputDir = path.relative(__dirname, 'src/content');
 const outputDir = path.relative(__dirname, 'build');
 
-module.exports = function(eleventyConfig) {
-
+module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({
     port: 9090,
   });
@@ -24,5 +23,4 @@ module.exports = function(eleventyConfig) {
       layouts: '../layouts/',
     },
   };
-
 };

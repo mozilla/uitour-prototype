@@ -1,0 +1,11 @@
+# exclude everything by default
+*.*
+# exclude these directories
+/coverage/
+/build/
+LICENSE
+# safe-list files we want to process
+!*.js
+!*.mjs
+!*.md
+!*.css

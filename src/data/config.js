@@ -1,3 +1,3 @@
 module.exports = {
-  title: "UITour Prototype",
+  title: 'UITour Prototype',
 };
