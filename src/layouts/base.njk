@@ -1,0 +1,30 @@
+{%- set uitourjs %}{% include "js/uitour-lib.js" %}{% endset -%}
+{%- set js %}{% include "js/main.js" %}{% endset -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or config.title }}</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="canonical" href="{{ config.url }}{{ page.url }}" />
+  </head>
+  <body>
+    {% block header %}
+    {%- include 'header.njk' -%}
+    {% endblock %}
+
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+
+    {% block footer %}
+    {%- include 'footer.njk' -%}
+    {% endblock %}
+
+    <script>
+     {{ uitourjs | jsmin | safe }}
+     {{ js | jsmin | safe }}
+    </script>
+  </body>
+</html>

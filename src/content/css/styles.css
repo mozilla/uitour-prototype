@@ -1,0 +1,23 @@
+body {
+  padding: 2em;
+  font-family: sans-serif;
+  background: #fff;
+}
+
+#fxa-signup {
+  margin-top: 2em;
+  padding: 2em;
+  text-align: center;
+  width: 20em;
+  border: 1px solid #ccc;
+}
+
+#fxa-status {
+  display: none;
+}
+
+.note {
+  background: #ccc;
+  padding: 1em;
+  width: 40em;
+}

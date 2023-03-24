@@ -1,0 +1,13 @@
+{
+  "name": "uitour-prototype",
+  "private": true,
+  "packageManager": "yarn@3.5.0",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "terser": "^5.16.6"
+  },
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve --config=./eleventy.config.js",
+    "build": "npx @11ty/eleventy --config=./eleventy.config.js"
+  }
+}
