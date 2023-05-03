@@ -6,7 +6,7 @@ const outputDir = path.relative(__dirname, 'build');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({
-    port: 9090,
+    port: 9091,
   });
 
   eleventyConfig.addPassthroughCopy('./src/content/css/');
