@@ -15,7 +15,7 @@ layout: base
 <div id="fxa-status">
   <div id="fxa-signup">
     <h2>Create an FXA Account</h2>
-    <form action="{{ config.FXAServerURL }}">
+    <form action="{{ config.UseLocalFXA and config.FXAServerLocalURL or config.FXAServerProdURL }}">
       <p>Enter your email adress to get started</p>
       <input type="email" name="email" placeholder="user@example.com" required="">
       <input type="hidden" name="form_type" value="email">
